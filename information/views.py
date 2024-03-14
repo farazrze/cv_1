@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import Intro
 
 def index(request):
-    return render(request,'index.html')
+    intro = Intro.objects.all()
+    context = {'intro':intro}
+    return render(request,'index.html',context)
 
